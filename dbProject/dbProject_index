@@ -1,0 +1,15 @@
+JDBC : dbProject 순서
+
+1. db.day1 패키지
+1) JDBCConnectTest.java		:
+2) OracleConnectUtil.java
+3) InsertTest.java
+4) InsertTest2.java
+5) SelectTest.java
+6) SelectTest2.java
+7) SelectTest2b.java
+8) SelectTest3.java
+
+2. db.day2 패키지
+1) VOClassTest.java
+2) IDCheckInsert.java
