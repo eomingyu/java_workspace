@@ -24,13 +24,22 @@ public class VOClassTest {
 			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				
-				customs.add(new Custom(rs.getString(1), 
+			//select 조회 결과를 한 행씩 가져와서 List에 추가합니다.
+			//getXXX(인덱스) : 인덱스는 select 뒤에 나열된 컬럼의 순서입니다.
+			//조회된 행의 각 컬럼값을 Custom 객체의 필드값으로 매핑하여 저장합니다. 두가지 방법이 가능합니다.	
+				customs.add(new Custom(rs.getString(1), 	//방법1) 커스텀 생성자
 										rs.getString(2), 
 										rs.getString(3), 
 										rs.getInt(4), 
 										rs.getDate(5)));
-			//getXXX(인덱스) : 인덱스는 select 뒤에 나열된 컬럼의 순서입니다.
+				
+				Custom vo = new Custom();				//방법2) setter
+				vo.setCustom_id(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setAge(rs.getInt(4));
+				vo.setReg_date(rs.getDate(5));
+				customs.add(vo);
 			}
 			System.out.println("List에 저장된 값 확인--------------");
 			System.out.println(customs);
@@ -43,7 +52,7 @@ public class VOClassTest {
 		} catch (SQLException e) {
 			System.out.println("SQL 실행 오류: "+e.getMessage());
 		}
-		
+		OracleConnectUtil.close(conn);
 	}
 
 }

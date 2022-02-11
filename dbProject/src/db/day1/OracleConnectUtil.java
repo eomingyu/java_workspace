@@ -28,8 +28,8 @@ public class OracleConnectUtil { // 오라클 연결이 필요할 떄 사용될 
 		
 		return conn;
 	} // connect 메소드 끝
+	
 	// 연결 종료 메소드
-
 	public static void close(Connection conn) {
 		if (conn != null) {
 			try {
