@@ -18,13 +18,10 @@ public class SelectTest2b {
 		// insert, update, delete는 쿼리 실행한 반환 결과 데이터가 없습니다.
 		try {
 			pstmt = conn.prepareStatement(sql);
-
 			// pstmt.execute(); //insert,update,delete
 			rs = pstmt.executeQuery(); // select //리턴타입이 있으면 대입문이 필요하다.
-
 			// rs.next()에서 next() 메소드는 행의 위피를 다음으로 이동시키고
 			// 이동한 위치에 데이터가 존재하면 참, 없으면 거짓입니다.
-
 			//Strimg.format
 			int i = 1;
 			while (rs.next()) {
@@ -35,13 +32,10 @@ public class SelectTest2b {
 				System.out.print(String.format("%5d  ", rs.getInt("age")));	//정수는 오른쪽 정렬이 맞다. 자릿수 커질 때
 				System.out.println(rs.getTimestamp("reg_date"));
 			}
-
 			pstmt.close();
-
 		} catch (SQLException e) {
 			System.out.println("SQL 실행 오류 : " + e.getMessage());
 		}
-
 		OracleConnectUtil.close(conn);
 	}
 
