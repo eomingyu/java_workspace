@@ -11,12 +11,9 @@ public class Custom {
 	private int age;
 	private Date reg_date;
 	
-	
 	public Custom() {
 		
 	}
-
-
 	//생성자 단축키 : alt+shift+s + o
 	public Custom(String custom_id, String name, String email, int age, Date reg_date) {
 		this.custom_id = custom_id;
